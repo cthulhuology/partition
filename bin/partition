@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+//
+// (C) 2014 David J. Goehrig <dave@dloh.org>
+//
+
+var args = process.argv.slice(2).filter(function(x) { return x.match(/^\d+/) })
+if (args.length != 2) {
+	console.log("Usage: " + process.argv[1] + " [partition] of [partitions]") 
+	process.exit(0)
+}
+
+console.log(args)
+partition = require('partition')
+partition.apply(partition, args)
